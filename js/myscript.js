@@ -7,9 +7,9 @@ var etaUtente = parseInt (prompt('Quanti anni hai?'));
 var bigliettoNormale = numChilometri * 0.21;
 
 // scontistiche biglietto
-var scontoQua = ((numChilometri * 0.21 / 100) * 40);
+var scontoQua = bigliettoNormale * 0.4;
 
-var scontoVen = ((numChilometri * 0.21 / 100) * 20);
+var scontoVen = bigliettoNormale * 0.2;
 
 var bigliettoScontatoVen = bigliettoNormale - scontoVen;
 
@@ -17,22 +17,14 @@ var bigliettoScontatoQua = bigliettoNormale - scontoQua;
 
 
 
-  if (etaUtente > 65) {
-  document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoScontatoQua + ' €' )
-  alert('hai ottenuto sconto del 40%');
+if ( !isNaN(numChilometri) && !isNaN(etaUtente) ) {
+    if ( etaUtente < 18 ) {
+        document.getElementById('prezzo_finale').innerHTML = 'Il costo del biglietto è di € ' + bigliettoScontatoVen ;
+    } else if ( etaUtente > 65 ) {
+        document.getElementById('prezzo_finale').innerHTML = 'Il costo del biglietto è di € ' + bigliettoScontatoQua ;
+    } else {
+        document.getElementById('prezzo_finale').innerHTML = 'Il costo del biglietto è di € ' + bigliettoNormale ;
     }
-
-  if (etaUtente < 18) {
-  document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoScontatoVen + ' €' )
-    alert('hai ottenuto sconto del 20%');
-    }
-
-  else {
-    document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoNormale + ' €' )
-    }
-
-  if (isNaN (numChilometri) || isNaN (etaUtente)) {
-  alert('devi inserire un numero');
-
-  document.getElementById('prezzo_finale').innerHTML = ('Inserisci Numeri per calcolare il tuo biglietto' )
-    }
+} else {
+    alert('immetti un numero per calcolare il tuo biglietto!')
+}
