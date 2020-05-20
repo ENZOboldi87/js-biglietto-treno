@@ -15,18 +15,24 @@ var bigliettoScontatoVen = bigliettoNormale - scontoVen;
 
 var bigliettoScontatoQua = bigliettoNormale - scontoQua;
 
-if (isNaN (numChilometri) || isNaN (etaUtente)){
-alert('non hai inserito un numero!');
 
-}
+
   if (etaUtente > 65) {
   document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoScontatoQua + ' €' )
   alert('hai ottenuto sconto del 40%');
+    }
 
-} else if (etaUtente < 18) {
+  if (etaUtente < 18) {
   document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoScontatoVen + ' €' )
     alert('hai ottenuto sconto del 20%');
+    }
 
-} else {
-  document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoNormale + ' €' )
-  }
+  else {
+    document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoNormale + ' €' )
+    }
+
+  if (isNaN (numChilometri) || isNaN (etaUtente)) {
+  alert('devi inserire un numero');
+
+  document.getElementById('prezzo_finale').innerHTML = ('Inserisci Numeri per calcolare il tuo biglietto' )
+    }
