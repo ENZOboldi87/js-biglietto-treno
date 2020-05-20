@@ -1,7 +1,7 @@
 // domande utente
-var numChilometri = prompt('Quanti chilometri vuoi percorrere?');
+var numChilometri = parseInt( prompt('Quanti chilometri vuoi percorrere?' ) ) ;
 
-var etaUtente = prompt('Quanti anni hai?');
+var etaUtente = parseInt (prompt('Quanti anni hai?'));
 
 // prezzo biglietto
 var bigliettoNormale = numChilometri * 0.21;
@@ -15,7 +15,11 @@ var bigliettoScontatoVen = bigliettoNormale - scontoVen;
 
 var bigliettoScontatoQua = bigliettoNormale - scontoQua;
 
-if (etaUtente > 65) {
+if (isNaN (numChilometri) || isNaN (etaUtente)){
+alert('non hai inserito un numero!');
+
+}
+  if (etaUtente > 65) {
   document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoScontatoQua + ' €' )
   alert('hai ottenuto sconto del 40%');
 
@@ -25,4 +29,4 @@ if (etaUtente > 65) {
 
 } else {
   document.getElementById('prezzo_finale').innerHTML = ('il prezzo da pagare e ' + bigliettoNormale + ' €' )
-}
+  }
