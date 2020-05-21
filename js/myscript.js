@@ -10,7 +10,7 @@ var scontoQua = bigliettoNormale * 0.4;
 var scontoVen = bigliettoNormale * 0.2;
 var bigliettoScontatoVen = (bigliettoNormale) - (scontoVen);
 var bigliettoScontatoQua = (bigliettoNormale) - (scontoQua);
-var messaggio;
+var messaggio = 'Il tuo prezzo e ' + bigliettoNormale.toFixed(2);
 
 // gestione errore
 if ( isNaN(numChilometri) || isNaN(etaUtente) ) {
@@ -25,6 +25,8 @@ else {
  else if (etaUtente > 65 ) {
   messaggio = 'Il tuo prezzo e ' + bigliettoScontatoQua.toFixed(2);
   }
+
 }
+
 // stampo il prezzo
 document.getElementById('prezzo_finale').innerHTML = messaggio;
